@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xjtu.mychat"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.xjtu.mychat.client.view.LoginActivity"
+            android:label="@string/app_name" 
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xjtu.mychat.client.view.RecentActivity" />
+        <activity
+            android:name="com.xjtu.mychat.client.view.BuddyActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.xjtu.mychat.client.view.ChatActivity"
+            android:launchMode="singleTask" />
+
+        
+        <receiver android:name="com.xjtu.mychat.client.view.ConnectReceiver" >
+            <intent-filter>
+                <action android:name="isconnect" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.xjtu.mychat.client.view.ConfigActivity"
+            android:label="@string/title_activity_config" >
+        </activity>
+
+        <service android:name="com.xjtu.mychat.client.view.McServer" >
+        </service>
+
+        <activity
+            android:name="com.xjtu.mychat.client.view.IsConnDialog"
+            android:label="@string/title_activity_is_conn_dialog"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.xjtu.mychat.client.view.FlieBrowerActivity"
+            android:label="@string/title_activity_flie_brower"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.xjtu.mychat.client.view.FileBrowserActivity"
+            android:label="@string/title_activity_file_browser" >
+        </activity>
+    </application>
+
+</manifest>
